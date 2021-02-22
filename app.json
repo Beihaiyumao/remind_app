@@ -1,14 +1,29 @@
 {
-  "pages":[
+  "pages": [
+    "pages/remind/remind",
     "pages/index/index",
     "pages/logs/logs"
+    
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "style": "v2",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/remind/remind",
+        "text": "定时"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的"
+      }
+    ]
+  },
+  
   "sitemapLocation": "sitemap.json"
+
 }

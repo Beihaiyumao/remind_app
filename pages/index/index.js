@@ -51,9 +51,9 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://test.com/onLogin',
+            url: 'http://10.10.0.193:5233/user/jscode',
             data: {
-              code: res.code
+              jsCode: res.code
             }
           })
         } else {
@@ -68,7 +68,14 @@ Page({
       hasUserInfo: true
     })
   },
-  xlogin(){
-    
+  
+  dingyue(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['qjQPnre4KBKETmfyNtbhxKK-72j2qt9o9lLktszTpq0'],
+      success (res) {
+        console.log("************success************")
+        console.log(res)
+       }
+    })
   }
 })

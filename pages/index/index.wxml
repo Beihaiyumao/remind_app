@@ -10,4 +10,5 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <button open-type="dingyue" bindtap="dingyue"> 订阅消息 </button>
 </view>

@@ -5,32 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+    remarks: "",
+    gmtRemind: "",
+    openId: "",
+    tmplId: "",
+    timeShow: true
   },
   // 打开弹窗
-  onClick(e) {
-    const {
-      name
-    } = e.currentTarget.dataset
-    if (name == 'endTime') {
-      if (this.data.startTime) {
-        this.setData({
-          timeName: name,
-          pickerShow: true
-        })
-      }else {
-        wx.showToast({
-          title: '请选择开始时间',
-          icon: 'none',
-          duration: 2000
-        })
-      }
-    } else {
-      this.setData({
-        timeName: name,
-        pickerShow: true
-      })
-    }
+  onClick() {
+    this.setData({
+      timeShow: false,
+      pickerShow: true
+    })
   },
   // 关闭弹窗
   onClose() {
@@ -38,27 +24,29 @@ Page({
       pickerShow: false
     })
   },
-    // 选择时间
-    onConfirm(e) {
-    
-        this.setData({
-          'formObj.gmtBegin': this.timestampToTime(e.detail),
-          gmtBegin: e.detail,
-          pickerShow: false
-        });
-      
-    },
+  // 选择时间
+  onConfirm(e) {
+    this.setData({
+      'gmtBegin': this.timestampToTime(e.detail),
+      gmtRemind: e.detail,
+      pickerShow: false
+    });
+  },
 
-     timestampToTime (timestamp){
-      var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-      var Y = date.getFullYear() + '-';
-      var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-      var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
-      var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
-      var m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-      return Y + M + D + h + m;
-    },
-    
+  timestampToTime(timestamp) {
+    var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    var Y = date.getFullYear() + '-';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    var m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    return Y + M + D + h + m;
+  },
+
+  save() {
+
+    console.log("******save*******" + this.data.gmtRemind)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

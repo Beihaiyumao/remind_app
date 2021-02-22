@@ -4,6 +4,7 @@
     "van-field": "/dist/field/index",
     "van-datetime-picker": "/dist/datetime-picker/index",
     "van-popup": "/dist/popup/index",
+    "van-button": "/dist/button/index",
     "van-cell": "/dist/cell/index"
   }
 }

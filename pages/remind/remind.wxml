@@ -1,16 +1,17 @@
 <!--pages/remind/remind.wxml-->
 <view>
-
-<van-field label="课时标题" name="title" value="{{formObj.title}}" placeholder="课程标题，最多20字"
-        placeholder-style="color: #969699" input-align="right" />
-      <van-cell title="开课时间" value="{{ formObj.gmtBegin || '请选择' }}" is-link data-name="gmtBegin"
+  <van-cell title="生日" value="{{ gmtBegin || '请选择' }}" is-link data-name="gmtRemind"
         bind:click="onClick" />
+<van-field label="备注" name="title" value="{{remarks}}" placeholder="生日备注，最多20字"
+        placeholder-style="color: #969699" input-align="right" />
+     
 </view>
 
 <van-popup show="{{ pickerShow }}" position="bottom" bind:close="onClose">
-  <view hidden="{{timeName != 'gmtBegin'}}">
-    <van-datetime-picker type="date" name="gmtBegin" value="{{ gmtBegin }}" bind:confirm="onConfirm"
+  <view hidden="{{timeShow}}">
+    <van-datetime-picker type="date" name="gmtRemind" value="{{ gmtRemind }}" bind:confirm="onConfirm"
       bind:cancel="onClose" />
   </view>
-  
+
 </van-popup>
+<van-button type="primary" size="large" bind:click="save">保存</van-button>

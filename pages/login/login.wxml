@@ -1,0 +1,25 @@
+
+<!--登录注册授权-->
+<view class="container fboxCol Ycneter Xcenter" style="{{sys.windowSize}}">
+  <view>
+    <header-custom title="注册登录" />
+    <view wx:if="{{canIUse}}" class="w750 fboxCol Ycneter Xcenter">
+        <view class="w750 fboxWrap Ycneter Xcenter"><image class='logo' src='/static/image/logo.png'></image></view>
+        <view class="fboxCol Ycneter Xcenter">
+            <view class="tit fboxWrap Ycneter Xcenter font40 color-323233">备考生</view>
+            <view class="con fboxWrap Ycneter Xcenter font24 color-969699">个人的高考志愿专家</view>
+        </view>
+        <button class='bottom font28 color-6871FE' wx:if="{{checked}}" type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">微信一键登录</button>
+        <button class='bottom font28 color-6871FE' wx:else type='primary' bindtap="bindGetUserInfo">微信一键登录</button>
+        <view class='tips fboxWrap Ycneter Xcenter font24 color-646466'>首次登录，将自动注册备考生</view>
+
+        <view class="agreement fboxRow Xcenter w750 font24 color-969699">
+            <label class="checkbox fboxRow Xcenter" bindtap="checkedChange">
+                <checkbox color="#6871FE" value="{{checked}}" style="margin-top:-12rpx; transform: scale(.6)" />
+                我已阅读并同意</label>
+            <navigator class="link color-6871FE" url="/pages/about/service/index">《备考生用户服务协议》</navigator>
+        </view>
+    </view>
+    <view wx:else>请升级微信版本</view>
+</view>
+</view>

@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/remind/remind",
     "pages/index/index",
     "pages/logs/logs"
-    
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +24,5 @@
       }
     ]
   },
-  
   "sitemapLocation": "sitemap.json"
-
 }
